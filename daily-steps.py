@@ -89,29 +89,29 @@ def create_daily_steps(client, database_id, steps):
     
     client.pages.create(**page)
 
-def main():
-    load_dotenv()
+#def main():
+#    load_dotenv()
 
     # Initialize Garmin and Notion clients using environment variables
-    garmin_email = os.getenv("GARMIN_EMAIL")
-    garmin_password = os.getenv("GARMIN_PASSWORD")
-    notion_token = os.getenv("NOTION_TOKEN")
-    database_id = os.getenv("NOTION_STEPS_DB_ID")
+#    garmin_email = os.getenv("GARMIN_EMAIL")
+#    garmin_password = os.getenv("GARMIN_PASSWORD")
+#    notion_token = os.getenv("NOTION_TOKEN")
+#    database_id = os.getenv("NOTION_STEPS_DB_ID")
 
     # Initialize Garmin client and login
-    garmin = Garmin(garmin_email, garmin_password)
-    garmin.login()
-    client = Client(auth=notion_token)
+#    garmin = Garmin(garmin_email, garmin_password)
+#    garmin.login()
+#    client = Client(auth=notion_token)
 
-    daily_steps = get_all_daily_steps(garmin)
-    for steps in daily_steps:
-        steps_date = steps.get('calendarDate')
-        existing_steps = daily_steps_exist(client, database_id, steps_date)
-        if existing_steps:
-            if steps_need_update(existing_steps, steps):
-                update_daily_steps(client, existing_steps, steps)
-        else:
-            create_daily_steps(client, database_id, steps)
+#    daily_steps = get_all_daily_steps(garmin)
+#    for steps in daily_steps:
+#        steps_date = steps.get('calendarDate')
+#        existing_steps = daily_steps_exist(client, database_id, steps_date)
+#        if existing_steps:
+#            if steps_need_update(existing_steps, steps):
+#                update_daily_steps(client, existing_steps, steps)
+#        else:
+#            create_daily_steps(client, database_id, steps)
 
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+#    main()
